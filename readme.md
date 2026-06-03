@@ -1,7 +1,11 @@
 ## Daily Timer
+Die von mir gehostete Version findest du hier: [daily.tomfe.de](https://daily.tomfe.de)
+
 Eine kleine, statische Daily-Seite für Teams: zufällige Reihenfolge, Timer, Redeobjekt, und einfache Verwaltung der Teilnehmenden direkt im Browser.
 
 Die Seite besteht nur aus HTML, CSS und JavaScript. Es ist kein Build-Step, kein Backend und keine Datenbank nötig.
+
+
 
 ### Features
 - Großer Countdown-Timer für das Daily
