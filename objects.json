@@ -1,0 +1,2002 @@
+[
+  {
+    "artikel": "Den",
+    "name": "Stift"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kugelschreiber"
+  },
+  {
+    "artikel": "Den",
+    "name": "Bleistift"
+  },
+  {
+    "artikel": "Den",
+    "name": "Füller"
+  },
+  {
+    "artikel": "Den",
+    "name": "Marker"
+  },
+  {
+    "artikel": "Den",
+    "name": "Textmarker"
+  },
+  {
+    "artikel": "Den",
+    "name": "Fineliner"
+  },
+  {
+    "artikel": "Den",
+    "name": "Radiergummi"
+  },
+  {
+    "artikel": "Den",
+    "name": "Anspitzer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Notizblock"
+  },
+  {
+    "artikel": "Das",
+    "name": "Notizbuch"
+  },
+  {
+    "artikel": "Das",
+    "name": "Heft"
+  },
+  {
+    "artikel": "Das",
+    "name": "Klemmbrett"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ordner"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schnellhefter"
+  },
+  {
+    "artikel": "Die",
+    "name": "Mappe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Klarsichthülle"
+  },
+  {
+    "artikel": "Die",
+    "name": "Büroklammer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Reißzwecke"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tacker"
+  },
+  {
+    "artikel": "Die",
+    "name": "Heftklammer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Locher"
+  },
+  {
+    "artikel": "Das",
+    "name": "Lineal"
+  },
+  {
+    "artikel": "Das",
+    "name": "Geodreieck"
+  },
+  {
+    "artikel": "Den",
+    "name": "Zirkel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schere"
+  },
+  {
+    "artikel": "Den",
+    "name": "Brieföffner"
+  },
+  {
+    "artikel": "Den",
+    "name": "Klebestift"
+  },
+  {
+    "artikel": "Das",
+    "name": "Klebeband"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kleber"
+  },
+  {
+    "artikel": "Den",
+    "name": "Stempel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Stempelkissen"
+  },
+  {
+    "artikel": "Den",
+    "name": "KalenDen"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tischkalender"
+  },
+  {
+    "artikel": "Die",
+    "name": "Visitenkarte"
+  },
+  {
+    "artikel": "Den",
+    "name": "Umschlag"
+  },
+  {
+    "artikel": "Den",
+    "name": "Briefumschlag"
+  },
+  {
+    "artikel": "Die",
+    "name": "Postkarte"
+  },
+  {
+    "artikel": "Den",
+    "name": "Haftnotizblock"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ablagekorb"
+  },
+  {
+    "artikel": "Die",
+    "name": "Ablageschale"
+  },
+  {
+    "artikel": "Das",
+    "name": "Namensschild"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ausweisclip"
+  },
+  {
+    "artikel": "Das",
+    "name": "Whiteboard"
+  },
+  {
+    "artikel": "Den",
+    "name": "Whiteboardmarker"
+  },
+  {
+    "artikel": "Den",
+    "name": "Magnet"
+  },
+  {
+    "artikel": "Den",
+    "name": "Flipchartblock"
+  },
+  {
+    "artikel": "Den",
+    "name": "Zeigestab"
+  },
+  {
+    "artikel": "Den",
+    "name": "Laserpointer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kartenhalter"
+  },
+  {
+    "artikel": "Die",
+    "name": "Tastatur"
+  },
+  {
+    "artikel": "Die",
+    "name": "Maus"
+  },
+  {
+    "artikel": "Das",
+    "name": "Mauspad"
+  },
+  {
+    "artikel": "Den",
+    "name": "Monitor"
+  },
+  {
+    "artikel": "Den",
+    "name": "Laptop"
+  },
+  {
+    "artikel": "Das",
+    "name": "Tablet"
+  },
+  {
+    "artikel": "Das",
+    "name": "Smartphone"
+  },
+  {
+    "artikel": "Das",
+    "name": "Telefon"
+  },
+  {
+    "artikel": "Das",
+    "name": "Headset"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kopfhörer"
+  },
+  {
+    "artikel": "Das",
+    "name": "Mikrofon"
+  },
+  {
+    "artikel": "Die",
+    "name": "Webcam"
+  },
+  {
+    "artikel": "Den",
+    "name": "Lautsprecher"
+  },
+  {
+    "artikel": "Die",
+    "name": "Powerbank"
+  },
+  {
+    "artikel": "Das",
+    "name": "Ladekabel"
+  },
+  {
+    "artikel": "Das",
+    "name": "USB-Kabel"
+  },
+  {
+    "artikel": "Das",
+    "name": "HDMI-Kabel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Netzkabel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Verlängerungskabel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Steckdosenleiste"
+  },
+  {
+    "artikel": "Den",
+    "name": "Adapter"
+  },
+  {
+    "artikel": "Den",
+    "name": "USB-Stick"
+  },
+  {
+    "artikel": "Die",
+    "name": "Speicherkarte"
+  },
+  {
+    "artikel": "Die",
+    "name": "Festplatte"
+  },
+  {
+    "artikel": "Die",
+    "name": "SSD"
+  },
+  {
+    "artikel": "Den",
+    "name": "Router"
+  },
+  {
+    "artikel": "Den",
+    "name": "Repeater"
+  },
+  {
+    "artikel": "Den",
+    "name": "Switch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Beamer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Fernbedienung"
+  },
+  {
+    "artikel": "Den",
+    "name": "Presenter"
+  },
+  {
+    "artikel": "Das",
+    "name": "Ladegerät"
+  },
+  {
+    "artikel": "Die",
+    "name": "Dockingstation"
+  },
+  {
+    "artikel": "Das",
+    "name": "Netzteil"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kabelbinder"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kabeltrommel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Touchpen"
+  },
+  {
+    "artikel": "Den",
+    "name": "Bildschirmreiniger"
+  },
+  {
+    "artikel": "Das",
+    "name": "Reinigungstuch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kartenleser"
+  },
+  {
+    "artikel": "Den",
+    "name": "Scanner"
+  },
+  {
+    "artikel": "Den",
+    "name": "Drucker"
+  },
+  {
+    "artikel": "Die",
+    "name": "Tonerpatrone"
+  },
+  {
+    "artikel": "Die",
+    "name": "Druckerpatrone"
+  },
+  {
+    "artikel": "Das",
+    "name": "Etikettiergerät"
+  },
+  {
+    "artikel": "Den",
+    "name": "Taschenrechner"
+  },
+  {
+    "artikel": "Die",
+    "name": "Smartwatch"
+  },
+  {
+    "artikel": "Die",
+    "name": "Ladestation"
+  },
+  {
+    "artikel": "Das",
+    "name": "Gamepad"
+  },
+  {
+    "artikel": "Den",
+    "name": "Controller"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tisch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schreibtisch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Beistelltisch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Konferenztisch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Stuhl"
+  },
+  {
+    "artikel": "Den",
+    "name": "Bürostuhl"
+  },
+  {
+    "artikel": "Den",
+    "name": "Hocker"
+  },
+  {
+    "artikel": "Die",
+    "name": "Bank"
+  },
+  {
+    "artikel": "Das",
+    "name": "Sofa"
+  },
+  {
+    "artikel": "Den",
+    "name": "Sessel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schrank"
+  },
+  {
+    "artikel": "Das",
+    "name": "Regal"
+  },
+  {
+    "artikel": "Das",
+    "name": "Sideboard"
+  },
+  {
+    "artikel": "Den",
+    "name": "Rollcontainer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kommode"
+  },
+  {
+    "artikel": "Die",
+    "name": "Lampe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schreibtischlampe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Stehlampe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Glühbirne"
+  },
+  {
+    "artikel": "Den",
+    "name": "Lampenschirm"
+  },
+  {
+    "artikel": "Den",
+    "name": "Teppich"
+  },
+  {
+    "artikel": "Die",
+    "name": "Fußmatte"
+  },
+  {
+    "artikel": "Das",
+    "name": "Kissen"
+  },
+  {
+    "artikel": "Die",
+    "name": "Decke"
+  },
+  {
+    "artikel": "Den",
+    "name": "Vorhang"
+  },
+  {
+    "artikel": "Die",
+    "name": "Gardine"
+  },
+  {
+    "artikel": "Das",
+    "name": "Rollo"
+  },
+  {
+    "artikel": "Die",
+    "name": "Jalousie"
+  },
+  {
+    "artikel": "Den",
+    "name": "Spiegel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Bild"
+  },
+  {
+    "artikel": "Den",
+    "name": "Bilderrahmen"
+  },
+  {
+    "artikel": "Die",
+    "name": "Pinnwand"
+  },
+  {
+    "artikel": "Die",
+    "name": "Uhr"
+  },
+  {
+    "artikel": "Die",
+    "name": "Wanduhr"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wecker"
+  },
+  {
+    "artikel": "Den",
+    "name": "Mülleimer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Papierkorb"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kiste"
+  },
+  {
+    "artikel": "Die",
+    "name": "Box"
+  },
+  {
+    "artikel": "Den",
+    "name": "Korb"
+  },
+  {
+    "artikel": "Die",
+    "name": "Truhe"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kleiderbügel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schlüsselhaken"
+  },
+  {
+    "artikel": "Den",
+    "name": "Türstopper"
+  },
+  {
+    "artikel": "Die",
+    "name": "Türklinke"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pflanzentopf"
+  },
+  {
+    "artikel": "Die",
+    "name": "Vase"
+  },
+  {
+    "artikel": "Die",
+    "name": "Zimmerpflanze"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kerzenhalter"
+  },
+  {
+    "artikel": "Die",
+    "name": "Tasse"
+  },
+  {
+    "artikel": "Den",
+    "name": "Becher"
+  },
+  {
+    "artikel": "Das",
+    "name": "Glas"
+  },
+  {
+    "artikel": "Die",
+    "name": "Flasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Karaffe"
+  },
+  {
+    "artikel": "Den",
+    "name": "Teller"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schale"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schüssel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Untertasse"
+  },
+  {
+    "artikel": "Das",
+    "name": "Besteck"
+  },
+  {
+    "artikel": "Die",
+    "name": "Gabel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Messer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Löffel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Teelöffel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kochlöffel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pfannenwender"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schneebesen"
+  },
+  {
+    "artikel": "Den",
+    "name": "Dosenöffner"
+  },
+  {
+    "artikel": "Den",
+    "name": "Flaschenöffner"
+  },
+  {
+    "artikel": "Den",
+    "name": "Korkenzieher"
+  },
+  {
+    "artikel": "Das",
+    "name": "Schneidebrett"
+  },
+  {
+    "artikel": "Das",
+    "name": "Brotmesser"
+  },
+  {
+    "artikel": "Das",
+    "name": "Küchenmesser"
+  },
+  {
+    "artikel": "Die",
+    "name": "Reibe"
+  },
+  {
+    "artikel": "Das",
+    "name": "Sieb"
+  },
+  {
+    "artikel": "Den",
+    "name": "Topf"
+  },
+  {
+    "artikel": "Die",
+    "name": "Pfanne"
+  },
+  {
+    "artikel": "Den",
+    "name": "Deckel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wasserkocher"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kaffeemaschine"
+  },
+  {
+    "artikel": "Den",
+    "name": "Toaster"
+  },
+  {
+    "artikel": "Den",
+    "name": "Mixer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pürierstab"
+  },
+  {
+    "artikel": "Die",
+    "name": "Küchenwaage"
+  },
+  {
+    "artikel": "Die",
+    "name": "Brotdose"
+  },
+  {
+    "artikel": "Die",
+    "name": "Lunchbox"
+  },
+  {
+    "artikel": "Die",
+    "name": "Thermoskanne"
+  },
+  {
+    "artikel": "Die",
+    "name": "Serviette"
+  },
+  {
+    "artikel": "Das",
+    "name": "Geschirrtuch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schwamm"
+  },
+  {
+    "artikel": "Die",
+    "name": "Spülbürste"
+  },
+  {
+    "artikel": "Das",
+    "name": "Spülmittel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Salzstreuer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pfefferstreuer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Zuckerdose"
+  },
+  {
+    "artikel": "Die",
+    "name": "Teekanne"
+  },
+  {
+    "artikel": "Den",
+    "name": "Messbecher"
+  },
+  {
+    "artikel": "Die",
+    "name": "Backform"
+  },
+  {
+    "artikel": "Das",
+    "name": "Backblech"
+  },
+  {
+    "artikel": "Den",
+    "name": "Eierbecher"
+  },
+  {
+    "artikel": "Den",
+    "name": "Hammer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schraubendreher"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kreuzschlitzschraubendreher"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schraubenschlüssel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Inbusschlüssel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Zange"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kneifzange"
+  },
+  {
+    "artikel": "Die",
+    "name": "Rohrzange"
+  },
+  {
+    "artikel": "Den",
+    "name": "Seitenschneider"
+  },
+  {
+    "artikel": "Die",
+    "name": "Säge"
+  },
+  {
+    "artikel": "Die",
+    "name": "Handsäge"
+  },
+  {
+    "artikel": "Die",
+    "name": "Feile"
+  },
+  {
+    "artikel": "Die",
+    "name": "Raspel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Bohrer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Bohrmaschine"
+  },
+  {
+    "artikel": "Den",
+    "name": "Akkuschrauber"
+  },
+  {
+    "artikel": "Das",
+    "name": "Maßband"
+  },
+  {
+    "artikel": "Den",
+    "name": "Zollstock"
+  },
+  {
+    "artikel": "Die",
+    "name": "Wasserwaage"
+  },
+  {
+    "artikel": "Den",
+    "name": "Winkel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schraube"
+  },
+  {
+    "artikel": "Die",
+    "name": "Mutter"
+  },
+  {
+    "artikel": "Die",
+    "name": "Unterlegscheibe"
+  },
+  {
+    "artikel": "Den",
+    "name": "Nagel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Dübel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Klemme"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schraubzwinge"
+  },
+  {
+    "artikel": "Den",
+    "name": "Spachtel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pinsel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Farbrolle"
+  },
+  {
+    "artikel": "Den",
+    "name": "Farbeimer"
+  },
+  {
+    "artikel": "Das",
+    "name": "Schleifpapier"
+  },
+  {
+    "artikel": "Den",
+    "name": "Werkzeugkasten"
+  },
+  {
+    "artikel": "Die",
+    "name": "Taschenlampe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Stirnlampe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Leiter"
+  },
+  {
+    "artikel": "Die",
+    "name": "Verlängerungsschnur"
+  },
+  {
+    "artikel": "Den",
+    "name": "Karabiner"
+  },
+  {
+    "artikel": "Das",
+    "name": "Seil"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schnur"
+  },
+  {
+    "artikel": "Das",
+    "name": "Gummiband"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kabelclip"
+  },
+  {
+    "artikel": "Den",
+    "name": "Saugnapf"
+  },
+  {
+    "artikel": "Den",
+    "name": "Haken"
+  },
+  {
+    "artikel": "Den",
+    "name": "Magnetstreifen"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schutzbrille"
+  },
+  {
+    "artikel": "Den",
+    "name": "Handschuh"
+  },
+  {
+    "artikel": "Den",
+    "name": "Staubpinsel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Besen"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kehrschaufel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Fußball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Basketball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tennisball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Golfball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Volleyball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Handball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tischtennisball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schläger"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tennisschläger"
+  },
+  {
+    "artikel": "Den",
+    "name": "Tischtennisschläger"
+  },
+  {
+    "artikel": "Den",
+    "name": "Badmintonschläger"
+  },
+  {
+    "artikel": "Das",
+    "name": "Springseil"
+  },
+  {
+    "artikel": "Die",
+    "name": "Hantel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Yogamatte"
+  },
+  {
+    "artikel": "Das",
+    "name": "Fitnessband"
+  },
+  {
+    "artikel": "Die",
+    "name": "Trinkflasche"
+  },
+  {
+    "artikel": "Das",
+    "name": "Handtuch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Rucksack"
+  },
+  {
+    "artikel": "Die",
+    "name": "Sporttasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Pfeife"
+  },
+  {
+    "artikel": "Die",
+    "name": "Stoppuhr"
+  },
+  {
+    "artikel": "Den",
+    "name": "Würfel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Spielwürfel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Kartenspiel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Spielkarte"
+  },
+  {
+    "artikel": "Das",
+    "name": "Puzzle"
+  },
+  {
+    "artikel": "Die",
+    "name": "Spielfigur"
+  },
+  {
+    "artikel": "Den",
+    "name": "Spielstein"
+  },
+  {
+    "artikel": "Das",
+    "name": "Brettspiel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Jonglierball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Frisbee"
+  },
+  {
+    "artikel": "Den",
+    "name": "Dartpfeil"
+  },
+  {
+    "artikel": "Die",
+    "name": "Dartscheibe"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kegel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Bowlingkugel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Helm"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schwimmbrille"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schuh"
+  },
+  {
+    "artikel": "Den",
+    "name": "Turnschuh"
+  },
+  {
+    "artikel": "Die",
+    "name": "Mütze"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kappe"
+  },
+  {
+    "artikel": "Das",
+    "name": "Stirnband"
+  },
+  {
+    "artikel": "Das",
+    "name": "Schweißband"
+  },
+  {
+    "artikel": "Den",
+    "name": "Protektor"
+  },
+  {
+    "artikel": "Die",
+    "name": "Luftpumpe"
+  },
+  {
+    "artikel": "Das",
+    "name": "Fahrradlicht"
+  },
+  {
+    "artikel": "Das",
+    "name": "Fahrradschloss"
+  },
+  {
+    "artikel": "Die",
+    "name": "Klingel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Reflektor"
+  },
+  {
+    "artikel": "Die",
+    "name": "Jacke"
+  },
+  {
+    "artikel": "Den",
+    "name": "Mantel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pullover"
+  },
+  {
+    "artikel": "Das",
+    "name": "Hemd"
+  },
+  {
+    "artikel": "Die",
+    "name": "Bluse"
+  },
+  {
+    "artikel": "Das",
+    "name": "T-Shirt"
+  },
+  {
+    "artikel": "Die",
+    "name": "Hose"
+  },
+  {
+    "artikel": "Die",
+    "name": "Jeans"
+  },
+  {
+    "artikel": "Den",
+    "name": "Gürtel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schal"
+  },
+  {
+    "artikel": "Das",
+    "name": "Halstuch"
+  },
+  {
+    "artikel": "Die",
+    "name": "Krawatte"
+  },
+  {
+    "artikel": "Die",
+    "name": "Fliege"
+  },
+  {
+    "artikel": "Den",
+    "name": "Hut"
+  },
+  {
+    "artikel": "Die",
+    "name": "Sonnenbrille"
+  },
+  {
+    "artikel": "Die",
+    "name": "Brille"
+  },
+  {
+    "artikel": "Das",
+    "name": "Brillenetui"
+  },
+  {
+    "artikel": "Die",
+    "name": "Armbanduhr"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ring"
+  },
+  {
+    "artikel": "Das",
+    "name": "Armband"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kette"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ohrring"
+  },
+  {
+    "artikel": "Die",
+    "name": "Tasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Handtasche"
+  },
+  {
+    "artikel": "Den",
+    "name": "Geldbeutel"
+  },
+  {
+    "artikel": "Das",
+    "name": "Portemonnaie"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schlüsselbund"
+  },
+  {
+    "artikel": "Den",
+    "name": "Regenschirm"
+  },
+  {
+    "artikel": "Die",
+    "name": "Regenjacke"
+  },
+  {
+    "artikel": "Die",
+    "name": "Socke"
+  },
+  {
+    "artikel": "Den",
+    "name": "Stiefel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Hausschuh"
+  },
+  {
+    "artikel": "Den",
+    "name": "Sneaker"
+  },
+  {
+    "artikel": "Die",
+    "name": "Weste"
+  },
+  {
+    "artikel": "Das",
+    "name": "Namensband"
+  },
+  {
+    "artikel": "Den",
+    "name": "Anstecker"
+  },
+  {
+    "artikel": "Den",
+    "name": "Button"
+  },
+  {
+    "artikel": "Den",
+    "name": "Rucksackanhänger"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kofferanhänger"
+  },
+  {
+    "artikel": "Die",
+    "name": "Gürteltasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Bauchtasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Laptoptasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Aktentasche"
+  },
+  {
+    "artikel": "Den",
+    "name": "Stoffbeutel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Turnbeutel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kamm"
+  },
+  {
+    "artikel": "Die",
+    "name": "Haarbürste"
+  },
+  {
+    "artikel": "Das",
+    "name": "Haargummi"
+  },
+  {
+    "artikel": "Die",
+    "name": "Haarspange"
+  },
+  {
+    "artikel": "Die",
+    "name": "Zahnbürste"
+  },
+  {
+    "artikel": "Die",
+    "name": "Zahnpasta"
+  },
+  {
+    "artikel": "Den",
+    "name": "Zahnputzbecher"
+  },
+  {
+    "artikel": "Die",
+    "name": "Seife"
+  },
+  {
+    "artikel": "Den",
+    "name": "Seifenspender"
+  },
+  {
+    "artikel": "Das",
+    "name": "Shampoo"
+  },
+  {
+    "artikel": "Das",
+    "name": "Duschgel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Rasierer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Bürste"
+  },
+  {
+    "artikel": "Den",
+    "name": "Föhn"
+  },
+  {
+    "artikel": "Das",
+    "name": "Badetuch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Waschlappen"
+  },
+  {
+    "artikel": "Den",
+    "name": "Nagelknipser"
+  },
+  {
+    "artikel": "Die",
+    "name": "Nagelfeile"
+  },
+  {
+    "artikel": "Die",
+    "name": "Pinzette"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kosmetiktasche"
+  },
+  {
+    "artikel": "Die",
+    "name": "Creme"
+  },
+  {
+    "artikel": "Den",
+    "name": "Lippenbalsam"
+  },
+  {
+    "artikel": "Das",
+    "name": "Pflaster"
+  },
+  {
+    "artikel": "Die",
+    "name": "Verbandsschere"
+  },
+  {
+    "artikel": "Den",
+    "name": "Verband"
+  },
+  {
+    "artikel": "Das",
+    "name": "Thermometer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Wärmflasche"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wäschekorb"
+  },
+  {
+    "artikel": "Die",
+    "name": "Wäscheklammer"
+  },
+  {
+    "artikel": "Das",
+    "name": "Waschmittel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Staubsauger"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wischmopp"
+  },
+  {
+    "artikel": "Den",
+    "name": "Eimer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Lappen"
+  },
+  {
+    "artikel": "Das",
+    "name": "Mikrofasertuch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Fensterabzieher"
+  },
+  {
+    "artikel": "Den",
+    "name": "Staubwedel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Müllbeutel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Sprühflasche"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schrubber"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kleiderrolle"
+  },
+  {
+    "artikel": "Das",
+    "name": "Bügeleisen"
+  },
+  {
+    "artikel": "Das",
+    "name": "Bügelbrett"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wäscheständer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wäschesack"
+  },
+  {
+    "artikel": "Die",
+    "name": "Fusselrolle"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kerze"
+  },
+  {
+    "artikel": "Das",
+    "name": "Feuerzeug"
+  },
+  {
+    "artikel": "Die",
+    "name": "Streichholzschachtel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Duftspender"
+  },
+  {
+    "artikel": "Den",
+    "name": "Lufterfrischer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Koffer"
+  },
+  {
+    "artikel": "Die",
+    "name": "Reisetasche"
+  },
+  {
+    "artikel": "Den",
+    "name": "Trolley"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kulturbeutel"
+  },
+  {
+    "artikel": "Die",
+    "name": "Thermoflasche"
+  },
+  {
+    "artikel": "Den",
+    "name": "Kompass"
+  },
+  {
+    "artikel": "Die",
+    "name": "Landkarte"
+  },
+  {
+    "artikel": "Den",
+    "name": "Reiseführer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Pass"
+  },
+  {
+    "artikel": "Das",
+    "name": "Ticket"
+  },
+  {
+    "artikel": "Die",
+    "name": "Fahrkarte"
+  },
+  {
+    "artikel": "Das",
+    "name": "Nackenkissen"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schlafmaske"
+  },
+  {
+    "artikel": "Den",
+    "name": "Ohrstöpsel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Reiseadapter"
+  },
+  {
+    "artikel": "Das",
+    "name": "Taschenmesser"
+  },
+  {
+    "artikel": "Die",
+    "name": "Sonnencreme"
+  },
+  {
+    "artikel": "Den",
+    "name": "Sonnenhut"
+  },
+  {
+    "artikel": "Die",
+    "name": "Picknickdecke"
+  },
+  {
+    "artikel": "Den",
+    "name": "Campingbecher"
+  },
+  {
+    "artikel": "Den",
+    "name": "Campingstuhl"
+  },
+  {
+    "artikel": "Die",
+    "name": "Isomatte"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schlafsack"
+  },
+  {
+    "artikel": "Das",
+    "name": "Zelt"
+  },
+  {
+    "artikel": "Den",
+    "name": "Hering"
+  },
+  {
+    "artikel": "Die",
+    "name": "Laterne"
+  },
+  {
+    "artikel": "Das",
+    "name": "Fernglas"
+  },
+  {
+    "artikel": "Die",
+    "name": "Lupe"
+  },
+  {
+    "artikel": "Den",
+    "name": "Regenschutz"
+  },
+  {
+    "artikel": "Die",
+    "name": "Regenhülle"
+  },
+  {
+    "artikel": "Den",
+    "name": "Wanderstock"
+  },
+  {
+    "artikel": "Das",
+    "name": "Erste-Hilfe-Set"
+  },
+  {
+    "artikel": "Die",
+    "name": "Zeckenzange"
+  },
+  {
+    "artikel": "Den",
+    "name": "Insektenspray"
+  },
+  {
+    "artikel": "Den",
+    "name": "Mückenschutz"
+  },
+  {
+    "artikel": "Die",
+    "name": "Proviantdose"
+  },
+  {
+    "artikel": "Den",
+    "name": "Klappspaten"
+  },
+  {
+    "artikel": "Die",
+    "name": "Plane"
+  },
+  {
+    "artikel": "Das",
+    "name": "Buch"
+  },
+  {
+    "artikel": "Das",
+    "name": "Taschenbuch"
+  },
+  {
+    "artikel": "Das",
+    "name": "Comicbuch"
+  },
+  {
+    "artikel": "Das",
+    "name": "Skizzenbuch"
+  },
+  {
+    "artikel": "Den",
+    "name": "Farbkasten"
+  },
+  {
+    "artikel": "Die",
+    "name": "Acrylfarbe"
+  },
+  {
+    "artikel": "Die",
+    "name": "Wasserfarbe"
+  },
+  {
+    "artikel": "Den",
+    "name": "Buntstift"
+  },
+  {
+    "artikel": "Den",
+    "name": "Filzstift"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kreide"
+  },
+  {
+    "artikel": "Die",
+    "name": "Leinwand"
+  },
+  {
+    "artikel": "Die",
+    "name": "Staffelei"
+  },
+  {
+    "artikel": "Den",
+    "name": "Malkasten"
+  },
+  {
+    "artikel": "Die",
+    "name": "Farbpalette"
+  },
+  {
+    "artikel": "Den",
+    "name": "Radierstift"
+  },
+  {
+    "artikel": "Das",
+    "name": "Bastelpapier"
+  },
+  {
+    "artikel": "Den",
+    "name": "Karton"
+  },
+  {
+    "artikel": "Das",
+    "name": "Washitape"
+  },
+  {
+    "artikel": "Die",
+    "name": "Heißklebepistole"
+  },
+  {
+    "artikel": "Den",
+    "name": "Glitzerstift"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schablone"
+  },
+  {
+    "artikel": "Den",
+    "name": "Sticker"
+  },
+  {
+    "artikel": "Das",
+    "name": "Etikett"
+  },
+  {
+    "artikel": "Das",
+    "name": "Foto"
+  },
+  {
+    "artikel": "Das",
+    "name": "Fotoalbum"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kamera"
+  },
+  {
+    "artikel": "Das",
+    "name": "Objektiv"
+  },
+  {
+    "artikel": "Den",
+    "name": "Blitz"
+  },
+  {
+    "artikel": "Das",
+    "name": "Stativ"
+  },
+  {
+    "artikel": "Die",
+    "name": "Gitarre"
+  },
+  {
+    "artikel": "Die",
+    "name": "Ukulele"
+  },
+  {
+    "artikel": "Die",
+    "name": "Mundharmonika"
+  },
+  {
+    "artikel": "Die",
+    "name": "Trommel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Drumstick"
+  },
+  {
+    "artikel": "Das",
+    "name": "Metronom"
+  },
+  {
+    "artikel": "Den",
+    "name": "Notenständer"
+  },
+  {
+    "artikel": "Den",
+    "name": "Plektrum"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schallplatte"
+  },
+  {
+    "artikel": "Die",
+    "name": "CD"
+  },
+  {
+    "artikel": "Die",
+    "name": "DVD"
+  },
+  {
+    "artikel": "Die",
+    "name": "Kassette"
+  },
+  {
+    "artikel": "Das",
+    "name": "Mischpult"
+  },
+  {
+    "artikel": "Den",
+    "name": "Recorder"
+  },
+  {
+    "artikel": "Den",
+    "name": "Schlüssel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Autoschlüssel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Chip"
+  },
+  {
+    "artikel": "Die",
+    "name": "Karte"
+  },
+  {
+    "artikel": "Die",
+    "name": "Chipkarte"
+  },
+  {
+    "artikel": "Den",
+    "name": "Token"
+  },
+  {
+    "artikel": "Den",
+    "name": "Anhänger"
+  },
+  {
+    "artikel": "Den",
+    "name": "Flaschenverschluss"
+  },
+  {
+    "artikel": "Die",
+    "name": "Dose"
+  },
+  {
+    "artikel": "Die",
+    "name": "Blechdose"
+  },
+  {
+    "artikel": "Das",
+    "name": "Glasgefäß"
+  },
+  {
+    "artikel": "Das",
+    "name": "Einmachglas"
+  },
+  {
+    "artikel": "Die",
+    "name": "Holzkiste"
+  },
+  {
+    "artikel": "Die",
+    "name": "Metallbox"
+  },
+  {
+    "artikel": "Den",
+    "name": "Gummiball"
+  },
+  {
+    "artikel": "Den",
+    "name": "Stressball"
+  },
+  {
+    "artikel": "Die",
+    "name": "Murmel"
+  },
+  {
+    "artikel": "Den",
+    "name": "Knopf"
+  },
+  {
+    "artikel": "Den",
+    "name": "Reißverschluss"
+  },
+  {
+    "artikel": "Das",
+    "name": "Band"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schleife"
+  },
+  {
+    "artikel": "Die",
+    "name": "Schnalle"
+  },
+  {
+    "artikel": "Den",
+    "name": "Clip"
+  },
+  {
+    "artikel": "Die",
+    "name": "Klammer"
+  }
+]

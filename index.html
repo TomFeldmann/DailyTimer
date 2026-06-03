@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Timer</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --panel-2: #1f2630;
+      --text: #f0f6fc;
+      --muted: #8b949e;
+      --green: #58a6ff;
+      --red: #f2cc60;
+      --border: #30363d;
+      --button: #1f6feb;
+      --button-hover: #388bfd;
+      --danger: #d29922;
+      --danger-hover: #f2cc60;
+      --neutral: #30363d;
+      --neutral-hover: #484f58;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at top, rgba(88, 166, 255, 0.14), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(800px, calc(100vw - 28px));
+      padding: clamp(20px, 4vw, 42px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: rgba(22, 27, 34, 0.92);
+      box-shadow: 0 24px 80px var(--shadow);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      letter-spacing: 0.04em;
+      color: var(--text);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    #timer {
+      margin: 10px 0 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-variant-numeric: tabular-nums;
+      font-size: clamp(4.8rem, 16vw, 10rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.025em;
+      color: var(--green);
+      text-shadow: 0 0 36px rgba(88, 166, 255, 0.28);
+      transition: color 180ms ease, text-shadow 180ms ease;
+    }
+
+    #timer.warning {
+      color: var(--red);
+      text-shadow: 0 0 36px rgba(242, 204, 96, 0.34);
+    }
+
+    #timer.finished {
+      color: var(--red);
+      text-shadow: 0 0 36px rgba(242, 204, 96, 0.34);
+      animation: blink 700ms steps(2, start) infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0.18; } }
+
+    .current-label {
+      margin: 12px 0 24px;
+      color: var(--muted);
+    }
+
+    #holderLabel {
+      display: block;
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--muted);
+      line-height: 1.18;
+    }
+
+    #currentName {
+      display: block;
+      margin-top: 8px;
+      color: var(--text);
+      font-size: clamp(1.7rem, 4.4vw, 3rem);
+      font-weight: 900;
+      word-break: break-word;
+      line-height: 1.1;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 22px;
+      color: white;
+      background: var(--neutral);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 100ms ease, background 150ms ease, opacity 150ms ease;
+    }
+
+    button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      background: var(--neutral-hover);
+    }
+
+    button:active:not(:disabled) { transform: translateY(0); }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .primary { background: var(--button); }
+    .primary:hover:not(:disabled) { background: var(--button-hover); }
+
+    .danger {
+      background: var(--danger);
+      color: var(--bg);
+    }
+
+    .danger:hover:not(:disabled) {
+      background: var(--danger-hover);
+      color: var(--bg);
+    }
+
+    details {
+      margin-top: 22px;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--panel-2);
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--button);
+      color: white;
+      font-size: 1.35rem;
+      line-height: 1;
+      transition: transform 150ms ease;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    .list-body {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .add-row {
+      display: flex;
+      gap: 10px;
+      margin: 18px 0 14px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 13px 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(88, 166, 255, 0.18);
+    }
+
+    input[type="text"]:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: auto auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--panel);
+    }
+
+    .play-button,
+    .remove-button {
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border-radius: 12px;
+      font-size: 1.05rem;
+    }
+
+    .play-button { background: var(--button); }
+
+    .play-button:hover:not(:disabled) {
+      background: var(--button-hover);
+      transform: none;
+    }
+
+    .check-wrap {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .name-row {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 12px;
+      color: var(--text);
+      padding: 10px 12px;
+      font-weight: 750;
+    }
+
+    .name-text { overflow-wrap: anywhere; }
+
+    .name-row.current {
+      background: rgba(88, 166, 255, 0.22);
+      outline: 1px solid rgba(88, 166, 255, 0.70);
+    }
+
+    .name-row.inactive { color: var(--muted); }
+
+    .name-row.done {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .done-badge {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: 3px 8px;
+      color: var(--green);
+      background: rgba(88, 166, 255, 0.16);
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .remove-button {
+      background: transparent;
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    .remove-button:hover:not(:disabled) {
+      color: var(--bg);
+      background: var(--danger);
+      transform: none;
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 12px 4px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        border-radius: 0;
+        min-height: 100vh;
+        width: 100%;
+        display: grid;
+        align-content: center;
+      }
+
+      #timer {
+        font-size: clamp(4.1rem, 15vw, 7rem);
+        letter-spacing: 0.015em;
+      }
+
+      .add-row { flex-direction: column; }
+      .add-row button { width: 100%; }
+
+      li {
+        grid-template-columns: auto auto 1fr auto;
+        gap: 7px;
+      }
+
+      .play-button,
+      .remove-button,
+      .check-wrap {
+        width: 38px;
+        height: 38px;
+      }
+
+      .name-row { padding: 9px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Daily</h1>
+
+    <div id="timer" aria-live="polite">04:00</div>
+
+    <p class="current-label">
+      <span id="holderLabel">Den Rede-Gegenstand hat:</span>
+      <span id="currentName">Noch niemand ausgewählt</span>
+    </p>
+
+    <div class="controls">
+      <button id="goButton" class="primary" type="button">Go</button>
+      <button id="pauseButton" type="button" disabled>Pause</button>
+      <button id="skipButton" type="button" disabled>Skip</button>
+      <button id="nextButton" class="primary" type="button" disabled>Weiter</button>
+      <button id="resetButton" class="danger" type="button">Reset</button>
+    </div>
+
+    <details>
+      <summary>
+        <span>Namenliste</span>
+        <span id="countLabel" aria-label="Anzahl Namen">0 Namen</span>
+      </summary>
+
+      <div class="list-body">
+        <form id="addForm" class="add-row">
+          <input id="nameInput" type="text" placeholder="Name hinzufügen ..." autocomplete="off" />
+          <button id="addButton" class="primary" type="submit">+ Hinzufügen</button>
+        </form>
+
+        <ol id="namesList"></ol>
+      </div>
+    </details>
+  </main>
+
+  <script>
+    const DURATION_SECONDS = 3 * 60;
+    const WARNING_SECONDS = 30;
+    const STORAGE_KEY = "fourMinuteTimerNames.v2";
+    const OLD_STORAGE_KEY = "fourMinuteTimerNames.v1";
+    const OBJECTS_URL = "objects.json";
+    const FALLBACK_OBJECTS = [
+      { artikel: "Der", name: "Tisch" },
+      { artikel: "Der", name: "Stab" },
+      { artikel: "Die", name: "Tastatur" },
+      { artikel: "Der", name: "Ball" },
+      { artikel: "Das", name: "Kabel" }
+    ];
+
+    const timerEl = document.getElementById("timer");
+    const holderLabelEl = document.getElementById("holderLabel");
+    const currentNameEl = document.getElementById("currentName");
+    const goButton = document.getElementById("goButton");
+    const pauseButton = document.getElementById("pauseButton");
+    const skipButton = document.getElementById("skipButton");
+    const nextButton = document.getElementById("nextButton");
+    const resetButton = document.getElementById("resetButton");
+    const addForm = document.getElementById("addForm");
+    const addButton = document.getElementById("addButton");
+    const nameInput = document.getElementById("nameInput");
+    const namesListEl = document.getElementById("namesList");
+    const countLabel = document.getElementById("countLabel");
+
+    let participants = loadParticipants();
+    let remainingQueue = [];
+    let currentId = null;
+    let completedIds = new Set();
+    let secondsLeft = DURATION_SECONDS;
+    let intervalId = null;
+    let isRunning = false;
+    let isPaused = false;
+    let isFinished = false;
+    let isStarting = false;
+    let speechObject = { artikel: "Den", name: "Gegenstand" };
+
+    function makeId() {
+      return String(Date.now()) + "-" + Math.random().toString(16).slice(2);
+    }
+
+    function normalizeParticipants(value) {
+      if (!Array.isArray(value)) return [];
+
+      return value
+        .map((item) => {
+          if (typeof item === "string") {
+            const name = item.trim();
+            return name ? { id: makeId(), name, active: true } : null;
+          }
+
+          if (item && typeof item === "object") {
+            const name = String(item.name || "").trim();
+            if (!name) return null;
+            return {
+              id: item.id ? String(item.id) : makeId(),
+              name,
+              active: item.active !== false
+            };
+          }
+
+          return null;
+        })
+        .filter(Boolean);
+    }
+
+    function loadParticipants() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) return normalizeParticipants(JSON.parse(raw));
+
+        const oldRaw = localStorage.getItem(OLD_STORAGE_KEY);
+        if (oldRaw) {
+          const migrated = normalizeParticipants(JSON.parse(oldRaw));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+          return migrated;
+        }
+
+        return [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveParticipants() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(participants));
+    }
+
+    function normalizeObjects(value) {
+      const source = Array.isArray(value)
+        ? value
+        : value && Array.isArray(value.objects)
+          ? value.objects
+          : [];
+
+      return source
+        .map((item) => {
+          if (typeof item === "string") {
+            const name = item.trim();
+            return name ? { artikel: "Das", name } : null;
+          }
+
+          if (item && typeof item === "object") {
+            const name = String(item.name || item.object || "").trim();
+            const artikel = String(item.artikel || item.article || "Das").trim();
+            return name ? { artikel: artikel || "Das", name } : null;
+          }
+
+          return null;
+        })
+        .filter(Boolean);
+    }
+
+    async function loadObjects() {
+      try {
+        const response = await fetch(OBJECTS_URL + "?t=" + Date.now(), { cache: "no-store" });
+        if (!response.ok) throw new Error("objects.json konnte nicht geladen werden.");
+
+        const data = await response.json();
+        const loadedObjects = normalizeObjects(data);
+        return loadedObjects.length > 0 ? loadedObjects : FALLBACK_OBJECTS;
+      } catch {
+        return FALLBACK_OBJECTS;
+      }
+    }
+
+    async function chooseRandomObjectForRun() {
+      const objects = await loadObjects();
+      speechObject = objects[Math.floor(Math.random() * objects.length)] || { artikel: "Das", name: "Gegenstand" };
+      updateTimerDisplay();
+    }
+
+    function updateHolderLabel() {
+      holderLabelEl.textContent = speechObject.artikel + " Rede-" + speechObject.name + " hat:";
+    }
+
+    function shuffle(array) {
+      const copy = [...array];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function formatTime(totalSeconds) {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+    }
+
+    function activeParticipants() {
+      return participants.filter((person) => person.active);
+    }
+
+    function findParticipant(id) {
+      return participants.find((person) => person.id === id) || null;
+    }
+
+    function getCurrentParticipant() {
+      return currentId ? findParticipant(currentId) : null;
+    }
+
+    function removeFromQueue(id) {
+      remainingQueue = remainingQueue.filter((queuedId) => queuedId !== id);
+    }
+
+    function markCurrentAsDone() {
+      if (!currentId) return;
+      completedIds.add(currentId);
+      removeFromQueue(currentId);
+    }
+
+    function currentNameText() {
+      if (participants.length === 0) return "Noch niemand ausgewählt";
+      if (!currentId) {
+        return completedIds.size > 0 ? "Alle fertig" : "Noch niemand ausgewählt";
+      }
+
+      const current = getCurrentParticipant();
+      return current ? current.name : "Noch niemand ausgewählt";
+    }
+
+    function updateTimerDisplay() {
+      const hasActiveParticipants = activeParticipants().length > 0;
+      const hasCurrentPerson = Boolean(getCurrentParticipant());
+
+      timerEl.textContent = formatTime(secondsLeft);
+      timerEl.classList.toggle("warning", secondsLeft <= WARNING_SECONDS && !isFinished);
+      timerEl.classList.toggle("finished", isFinished);
+      updateHolderLabel();
+      currentNameEl.textContent = currentNameText();
+
+      goButton.disabled = isStarting || !hasActiveParticipants || isRunning || isFinished;
+      pauseButton.disabled = !isRunning || isFinished;
+      pauseButton.textContent = isPaused ? "Fortsetzen" : "Pause";
+      skipButton.disabled = !isRunning || !hasCurrentPerson || isFinished;
+      nextButton.disabled = !isFinished;
+      nameInput.disabled = isStarting || isRunning || isFinished;
+      addButton.disabled = isStarting || isRunning || isFinished;
+
+      renderNames();
+    }
+
+    function renderNames() {
+      const activeCount = activeParticipants().length;
+      countLabel.textContent = participants.length === 0
+        ? "0 Namen"
+        : activeCount + "/" + participants.length + " aktiv";
+
+      namesListEl.innerHTML = "";
+
+      if (participants.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "Noch keine Namen hinzugefügt.";
+        namesListEl.appendChild(empty);
+        return;
+      }
+
+      participants.forEach((person, index) => {
+        const isCurrent = person.id === currentId;
+        const isDone = completedIds.has(person.id);
+
+        const li = document.createElement("li");
+
+        const playButton = document.createElement("button");
+        playButton.type = "button";
+        playButton.className = "play-button";
+        playButton.textContent = "▶";
+        playButton.title = person.name + " direkt starten";
+        playButton.setAttribute("aria-label", person.name + " direkt starten");
+        playButton.disabled = isStarting || isCurrent || isDone;
+        playButton.addEventListener("click", () => {
+          startSpecificPerson(person.id);
+        });
+
+        const checkWrap = document.createElement("label");
+        checkWrap.className = "check-wrap";
+        checkWrap.title = person.active ? "Ist in der Zufallsrunde dabei" : "Ist aus der Zufallsrunde raus";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = person.active;
+        checkbox.disabled = isStarting || isRunning || isFinished;
+        checkbox.addEventListener("change", () => {
+          person.active = checkbox.checked;
+
+          if (!person.active) {
+            removeFromQueue(person.id);
+          }
+
+          if (!isRunning && !isFinished && !currentId) {
+            completedIds.clear();
+            remainingQueue = [];
+            secondsLeft = DURATION_SECONDS;
+          }
+
+          saveParticipants();
+          updateTimerDisplay();
+        });
+
+        checkWrap.appendChild(checkbox);
+
+        const nameRow = document.createElement("div");
+        nameRow.className = "name-row";
+        if (isCurrent) nameRow.classList.add("current");
+        if (!person.active) nameRow.classList.add("inactive");
+        if (isDone) nameRow.classList.add("done");
+
+        const nameText = document.createElement("span");
+        nameText.className = "name-text";
+        nameText.textContent = (index + 1) + ". " + person.name;
+        nameRow.appendChild(nameText);
+
+        if (isDone) {
+          const doneBadge = document.createElement("span");
+          doneBadge.className = "done-badge";
+          doneBadge.textContent = "fertig";
+          nameRow.appendChild(doneBadge);
+        }
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.className = "remove-button";
+        removeButton.setAttribute("aria-label", person.name + " löschen");
+        removeButton.textContent = "×";
+        removeButton.disabled = isStarting || isRunning || isFinished;
+        removeButton.addEventListener("click", () => {
+          participants.splice(index, 1);
+          removeFromQueue(person.id);
+          completedIds.delete(person.id);
+
+          if (currentId === person.id) {
+            currentId = null;
+            clearTimerInterval();
+            isRunning = false;
+            isPaused = false;
+            isFinished = false;
+            secondsLeft = DURATION_SECONDS;
+          }
+
+          saveParticipants();
+          updateTimerDisplay();
+        });
+
+        li.append(playButton, checkWrap, nameRow, removeButton);
+        namesListEl.appendChild(li);
+      });
+    }
+
+    function clearTimerInterval() {
+      if (intervalId !== null) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+
+    function startInterval() {
+      clearTimerInterval();
+
+      isRunning = true;
+      isPaused = false;
+      isFinished = false;
+
+      intervalId = setInterval(() => {
+        if (isPaused) return;
+
+        secondsLeft = Math.max(0, secondsLeft - 1);
+        updateTimerDisplay();
+
+        if (secondsLeft === 0) {
+          clearTimerInterval();
+          isRunning = false;
+          isPaused = false;
+          isFinished = true;
+          markCurrentAsDone();
+          updateTimerDisplay();
+        }
+      }, 1000);
+
+      updateTimerDisplay();
+    }
+
+    function startCurrentPerson() {
+      if (!currentId) {
+        finishRound();
+        return;
+      }
+
+      secondsLeft = DURATION_SECONDS;
+      startInterval();
+    }
+
+    async function startNewRandomRound() {
+      if (isStarting || isRunning || isFinished) return;
+
+      const active = activeParticipants();
+
+      if (active.length === 0) {
+        alert("Bitte erst mindestens einen aktiven Namen hinzufügen.");
+        return;
+      }
+
+      isStarting = true;
+      updateTimerDisplay();
+
+      await chooseRandomObjectForRun();
+
+      const shuffledIds = shuffle(active.map((person) => person.id));
+      completedIds.clear();
+      currentId = shuffledIds[0];
+      remainingQueue = shuffledIds.slice(1);
+      secondsLeft = DURATION_SECONDS;
+      isStarting = false;
+      startInterval();
+    }
+
+    async function startSpecificPerson(personId) {
+      const person = findParticipant(personId);
+      if (!person || completedIds.has(personId) || currentId === personId || isStarting) return;
+
+      const freshRun = !currentId && !isRunning && !isFinished && completedIds.size === 0 && remainingQueue.length === 0;
+
+      isStarting = freshRun;
+      updateTimerDisplay();
+
+      if (freshRun) {
+        await chooseRandomObjectForRun();
+        remainingQueue = shuffle(
+          activeParticipants()
+            .map((participant) => participant.id)
+            .filter((id) => id !== personId)
+        );
+      }
+
+      if (currentId) {
+        markCurrentAsDone();
+      }
+
+      clearTimerInterval();
+      removeFromQueue(personId);
+      currentId = personId;
+      secondsLeft = DURATION_SECONDS;
+      isStarting = false;
+      startInterval();
+    }
+
+    function finishRound() {
+      clearTimerInterval();
+      currentId = null;
+      remainingQueue = [];
+      secondsLeft = DURATION_SECONDS;
+      isRunning = false;
+      isPaused = false;
+      isFinished = false;
+      updateTimerDisplay();
+    }
+
+    function startNextFromQueue() {
+      if (remainingQueue.length === 0) {
+        finishRound();
+        return;
+      }
+
+      currentId = remainingQueue.shift();
+      startCurrentPerson();
+    }
+
+    function goToNextPerson() {
+      if (!isFinished) return;
+
+      isFinished = false;
+      startNextFromQueue();
+    }
+
+    function skipCurrentPerson() {
+      if (!isRunning || !currentId) return;
+
+      markCurrentAsDone();
+      isFinished = false;
+      startNextFromQueue();
+    }
+
+    function resetEverything() {
+      clearTimerInterval();
+      remainingQueue = [];
+      currentId = null;
+      completedIds.clear();
+      secondsLeft = DURATION_SECONDS;
+      isRunning = false;
+      isPaused = false;
+      isFinished = false;
+      isStarting = false;
+      speechObject = { artikel: "Das", name: "Gegenstand" };
+      updateTimerDisplay();
+    }
+
+    addForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (isStarting || isRunning || isFinished) return;
+
+      const name = nameInput.value.trim();
+
+      if (!name) return;
+
+      participants.push({
+        id: makeId(),
+        name,
+        active: true
+      });
+
+      nameInput.value = "";
+      saveParticipants();
+      updateTimerDisplay();
+      nameInput.focus();
+    });
+
+    goButton.addEventListener("click", startNewRandomRound);
+
+    pauseButton.addEventListener("click", () => {
+      if (!isRunning || isFinished) return;
+      isPaused = !isPaused;
+      updateTimerDisplay();
+    });
+
+    skipButton.addEventListener("click", skipCurrentPerson);
+    nextButton.addEventListener("click", goToNextPerson);
+    resetButton.addEventListener("click", resetEverything);
+
+    updateTimerDisplay();
+  </script>
+</body>
+</html>
