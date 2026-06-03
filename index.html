@@ -334,6 +334,14 @@
       text-align: center;
     }
 
+    .footer {
+      display: block;
+      margin-top: 32px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
     @media (max-width: 520px) {
       main {
         border-radius: 0;
@@ -364,6 +372,8 @@
       }
 
       .name-row { padding: 9px 8px; }
+
+      
     }
   </style>
 </head>
@@ -401,6 +411,9 @@
         <ol id="namesList"></ol>
       </div>
     </details>
+    <footer class="footer">
+      © <span id="currentYear"></span> Tom Feldmann · MIT License
+    </footer>
   </main>
 
   <script>
@@ -896,6 +909,7 @@
     skipButton.addEventListener("click", skipCurrentPerson);
     nextButton.addEventListener("click", goToNextPerson);
     resetButton.addEventListener("click", resetEverything);
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
 
     updateTimerDisplay();
   </script>
