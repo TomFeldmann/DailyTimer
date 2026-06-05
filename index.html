@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Timer - farbenblindfreundlich mit korrekter Nächster-Anzeige</title>
+  <title>Daily Timer - farbenblindfreundlich v4</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -109,9 +109,9 @@
       display: block;
       margin-top: 14px;
       min-height: 1.4em;
-      color: var(--green);
-      font-size: clamp(1.05rem, 2.5vw, 1.55rem);
-      font-weight: 900;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      font-weight: 700;
       line-height: 1.25;
     }
 
@@ -554,11 +554,6 @@
     }
 
     function updateHolderLabel() {
-      if (isPreparing) {
-        holderLabelEl.textContent = "Mach dich bereit:";
-        return;
-      }
-
       holderLabelEl.textContent = speechObject.artikel + " Rede-" + speechObject.name + " hat:";
     }
 
