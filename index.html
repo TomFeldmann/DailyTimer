@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Timer</title>
+  <title>Daily Timer - farbenblindfreundlich mit Bereitmachen</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -103,6 +103,16 @@
       font-weight: 900;
       word-break: break-word;
       line-height: 1.1;
+    }
+
+    #readyLabel {
+      display: block;
+      margin-top: 14px;
+      min-height: 1.4em;
+      color: var(--green);
+      font-size: clamp(1.05rem, 2.5vw, 1.55rem);
+      font-weight: 900;
+      line-height: 1.25;
     }
 
     .controls {
@@ -334,15 +344,6 @@
       text-align: center;
     }
 
-    .footer {
-      display: block;
-      margin-top: 32px;
-      padding-top: 18px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-    }
     @media (max-width: 520px) {
       main {
         border-radius: 0;
@@ -373,8 +374,6 @@
       }
 
       .name-row { padding: 9px 8px; }
-
-      
     }
   </style>
 </head>
@@ -387,6 +386,7 @@
     <p class="current-label">
       <span id="holderLabel">Den Rede-Gegenstand hat:</span>
       <span id="currentName">Noch niemand ausgewählt</span>
+      <span id="readyLabel">Mach dich bereit: —</span>
     </p>
 
     <div class="controls">
@@ -412,13 +412,11 @@
         <ol id="namesList"></ol>
       </div>
     </details>
-    <footer class="footer">
-      © <span id="currentYear"></span> Tom Feldmann · MIT License
-    </footer>
   </main>
 
   <script>
     const DURATION_SECONDS = 3 * 60;
+    const PREP_SECONDS = 7;
     const WARNING_SECONDS = 30;
     const STORAGE_KEY = "fourMinuteTimerNames.v2";
     const OLD_STORAGE_KEY = "fourMinuteTimerNames.v1";
@@ -434,6 +432,7 @@
     const timerEl = document.getElementById("timer");
     const holderLabelEl = document.getElementById("holderLabel");
     const currentNameEl = document.getElementById("currentName");
+    const readyLabelEl = document.getElementById("readyLabel");
     const goButton = document.getElementById("goButton");
     const pauseButton = document.getElementById("pauseButton");
     const skipButton = document.getElementById("skipButton");
@@ -450,7 +449,9 @@
     let currentId = null;
     let completedIds = new Set();
     let secondsLeft = DURATION_SECONDS;
+    let prepSecondsLeft = PREP_SECONDS;
     let intervalId = null;
+    let isPreparing = false;
     let isRunning = false;
     let isPaused = false;
     let isFinished = false;
@@ -553,6 +554,11 @@
     }
 
     function updateHolderLabel() {
+      if (isPreparing) {
+        holderLabelEl.textContent = "Mach dich bereit:";
+        return;
+      }
+
       holderLabelEl.textContent = speechObject.artikel + " Rede-" + speechObject.name + " hat:";
     }
 
@@ -603,23 +609,49 @@
       return current ? current.name : "Noch niemand ausgewählt";
     }
 
+    function getNextParticipant() {
+      const nextId = remainingQueue.find((id) => !completedIds.has(id) && id !== currentId);
+      return nextId ? findParticipant(nextId) : null;
+    }
+
+    function readyText() {
+      const current = getCurrentParticipant();
+
+      if (isPreparing && current) {
+        return "Jetzt geht's los: " + current.name;
+      }
+
+      const next = getNextParticipant();
+      if (next) {
+        return "Mach dich bereit: " + next.name;
+      }
+
+      if (isRunning || isFinished || completedIds.size > 0) {
+        return "Niemand mehr danach";
+      }
+
+      return "Mach dich bereit: —";
+    }
+
     function updateTimerDisplay() {
       const hasActiveParticipants = activeParticipants().length > 0;
       const hasCurrentPerson = Boolean(getCurrentParticipant());
+      const displayedSeconds = isPreparing ? prepSecondsLeft : secondsLeft;
 
-      timerEl.textContent = formatTime(secondsLeft);
-      timerEl.classList.toggle("warning", secondsLeft <= WARNING_SECONDS && !isFinished);
+      timerEl.textContent = formatTime(displayedSeconds);
+      timerEl.classList.toggle("warning", !isPreparing && secondsLeft <= WARNING_SECONDS && !isFinished);
       timerEl.classList.toggle("finished", isFinished);
       updateHolderLabel();
       currentNameEl.textContent = currentNameText();
+      readyLabelEl.textContent = readyText();
 
-      goButton.disabled = isStarting || !hasActiveParticipants || isRunning || isFinished;
-      pauseButton.disabled = !isRunning || isFinished;
+      goButton.disabled = isStarting || isPreparing || !hasActiveParticipants || isRunning || isFinished;
+      pauseButton.disabled = !isRunning || isPreparing || isFinished;
       pauseButton.textContent = isPaused ? "Fortsetzen" : "Pause";
-      skipButton.disabled = !isRunning || !hasCurrentPerson || isFinished;
+      skipButton.disabled = !isRunning || isPreparing || !hasCurrentPerson || isFinished;
       nextButton.disabled = !isFinished;
-      nameInput.disabled = isStarting || isRunning || isFinished;
-      addButton.disabled = isStarting || isRunning || isFinished;
+      nameInput.disabled = isStarting || isPreparing || isRunning || isFinished;
+      addButton.disabled = isStarting || isPreparing || isRunning || isFinished;
 
       renderNames();
     }
@@ -652,7 +684,7 @@
         playButton.textContent = "▶";
         playButton.title = person.name + " direkt starten";
         playButton.setAttribute("aria-label", person.name + " direkt starten");
-        playButton.disabled = isStarting || isCurrent || isDone;
+        playButton.disabled = isStarting || isPreparing || isCurrent || isDone;
         playButton.addEventListener("click", () => {
           startSpecificPerson(person.id);
         });
@@ -664,7 +696,7 @@
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = person.active;
-        checkbox.disabled = isStarting || isRunning || isFinished;
+        checkbox.disabled = isStarting || isPreparing || isRunning || isFinished;
         checkbox.addEventListener("change", () => {
           person.active = checkbox.checked;
 
@@ -707,7 +739,7 @@
         removeButton.className = "remove-button";
         removeButton.setAttribute("aria-label", person.name + " löschen");
         removeButton.textContent = "×";
-        removeButton.disabled = isStarting || isRunning || isFinished;
+        removeButton.disabled = isStarting || isPreparing || isRunning || isFinished;
         removeButton.addEventListener("click", () => {
           participants.splice(index, 1);
           removeFromQueue(person.id);
@@ -738,9 +770,38 @@
       }
     }
 
+    function startPreparationForCurrentPerson() {
+      if (!currentId) {
+        finishRound();
+        return;
+      }
+
+      clearTimerInterval();
+
+      isPreparing = true;
+      isRunning = false;
+      isPaused = false;
+      isFinished = false;
+      prepSecondsLeft = PREP_SECONDS;
+
+      intervalId = setInterval(() => {
+        prepSecondsLeft = Math.max(0, prepSecondsLeft - 1);
+        updateTimerDisplay();
+
+        if (prepSecondsLeft === 0) {
+          clearTimerInterval();
+          isPreparing = false;
+          startCurrentPerson();
+        }
+      }, 1000);
+
+      updateTimerDisplay();
+    }
+
     function startInterval() {
       clearTimerInterval();
 
+      isPreparing = false;
       isRunning = true;
       isPaused = false;
       isFinished = false;
@@ -775,7 +836,7 @@
     }
 
     async function startNewRandomRound() {
-      if (isStarting || isRunning || isFinished) return;
+      if (isStarting || isPreparing || isRunning || isFinished) return;
 
       const active = activeParticipants();
 
@@ -794,8 +855,9 @@
       currentId = shuffledIds[0];
       remainingQueue = shuffledIds.slice(1);
       secondsLeft = DURATION_SECONDS;
+      prepSecondsLeft = PREP_SECONDS;
       isStarting = false;
-      startInterval();
+      startPreparationForCurrentPerson();
     }
 
     async function startSpecificPerson(personId) {
@@ -824,8 +886,9 @@
       removeFromQueue(personId);
       currentId = personId;
       secondsLeft = DURATION_SECONDS;
+      prepSecondsLeft = PREP_SECONDS;
       isStarting = false;
-      startInterval();
+      startPreparationForCurrentPerson();
     }
 
     function finishRound() {
@@ -833,6 +896,8 @@
       currentId = null;
       remainingQueue = [];
       secondsLeft = DURATION_SECONDS;
+      prepSecondsLeft = PREP_SECONDS;
+      isPreparing = false;
       isRunning = false;
       isPaused = false;
       isFinished = false;
@@ -846,7 +911,7 @@
       }
 
       currentId = remainingQueue.shift();
-      startCurrentPerson();
+      startPreparationForCurrentPerson();
     }
 
     function goToNextPerson() {
@@ -870,6 +935,8 @@
       currentId = null;
       completedIds.clear();
       secondsLeft = DURATION_SECONDS;
+      prepSecondsLeft = PREP_SECONDS;
+      isPreparing = false;
       isRunning = false;
       isPaused = false;
       isFinished = false;
@@ -881,7 +948,7 @@
     addForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      if (isStarting || isRunning || isFinished) return;
+      if (isStarting || isPreparing || isRunning || isFinished) return;
 
       const name = nameInput.value.trim();
 
@@ -910,7 +977,6 @@
     skipButton.addEventListener("click", skipCurrentPerson);
     nextButton.addEventListener("click", goToNextPerson);
     resetButton.addEventListener("click", resetEverything);
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
 
     updateTimerDisplay();
   </script>
