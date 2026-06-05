@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Timer - farbenblindfreundlich v6</title>
+  <title>Daily Timer - Prep und Als nächstes</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -390,7 +390,7 @@
     <p class="current-label">
       <span id="holderLabel">Den Rede-Gegenstand hat:</span>
       <span id="currentName">Noch niemand ausgewählt</span>
-      <span id="readyLabel">Mach dich bereit: —</span>
+      <span id="readyLabel">Als nächstes: —</span>
     </p>
 
     <div class="controls">
@@ -558,6 +558,11 @@
     }
 
     function updateHolderLabel() {
+      if (isPreparing) {
+        holderLabelEl.textContent = "Mach dich bereit:";
+        return;
+      }
+
       holderLabelEl.textContent = speechObject.artikel + " Rede-" + speechObject.name + " hat:";
     }
 
@@ -628,14 +633,14 @@
       const next = getNextParticipant();
 
       if (next) {
-        return "Mach dich bereit: " + next.name;
+        return "Als nächstes: " + next.name;
       }
 
       if (isPreparing || isRunning || isFinished || completedIds.size > 0) {
         return "Niemand mehr danach";
       }
 
-      return "Mach dich bereit: —";
+      return "Als nächstes: —";
     }
 
     function updateTimerDisplay() {
