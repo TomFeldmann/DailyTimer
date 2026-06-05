@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Timer - farbenblindfreundlich mit Bereitmachen</title>
+  <title>Daily Timer - farbenblindfreundlich mit flexibler Anwesenheit</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -593,6 +593,17 @@
       remainingQueue = remainingQueue.filter((queuedId) => queuedId !== id);
     }
 
+    function addToQueueRandomly(id) {
+      if (!id || remainingQueue.includes(id) || completedIds.has(id) || id === currentId) return;
+
+      const insertAt = Math.floor(Math.random() * (remainingQueue.length + 1));
+      remainingQueue.splice(insertAt, 0, id);
+    }
+
+    function roundIsActiveOrStarted() {
+      return isPreparing || isRunning || isFinished || Boolean(currentId) || remainingQueue.length > 0 || completedIds.size > 0;
+    }
+
     function markCurrentAsDone() {
       if (!currentId) return;
       completedIds.add(currentId);
@@ -648,7 +659,7 @@
       goButton.disabled = isStarting || isPreparing || !hasActiveParticipants || isRunning || isFinished;
       pauseButton.disabled = !isRunning || isPreparing || isFinished;
       pauseButton.textContent = isPaused ? "Fortsetzen" : "Pause";
-      skipButton.disabled = !isRunning || isPreparing || !hasCurrentPerson || isFinished;
+      skipButton.disabled = (!isRunning && !isPreparing && !isFinished) || !hasCurrentPerson;
       nextButton.disabled = !isFinished;
       nameInput.disabled = isStarting || isPreparing || isRunning || isFinished;
       addButton.disabled = isStarting || isPreparing || isRunning || isFinished;
@@ -660,7 +671,7 @@
       const activeCount = activeParticipants().length;
       countLabel.textContent = participants.length === 0
         ? "0 Namen"
-        : activeCount + "/" + participants.length + " aktiv";
+        : activeCount + "/" + participants.length + " anwesend";
 
       namesListEl.innerHTML = "";
 
@@ -684,30 +695,43 @@
         playButton.textContent = "▶";
         playButton.title = person.name + " direkt starten";
         playButton.setAttribute("aria-label", person.name + " direkt starten");
-        playButton.disabled = isStarting || isPreparing || isCurrent || isDone;
+        playButton.disabled = isStarting || isCurrent || isDone;
         playButton.addEventListener("click", () => {
           startSpecificPerson(person.id);
         });
 
         const checkWrap = document.createElement("label");
         checkWrap.className = "check-wrap";
-        checkWrap.title = person.active ? "Ist in der Zufallsrunde dabei" : "Ist aus der Zufallsrunde raus";
+        checkWrap.title = person.active ? "Anwesend: ist in der Runde dabei" : "Abwesend: ist aus der Runde raus";
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = person.active;
-        checkbox.disabled = isStarting || isPreparing || isRunning || isFinished;
+        checkbox.disabled = isStarting;
         checkbox.addEventListener("change", () => {
           person.active = checkbox.checked;
 
           if (!person.active) {
             removeFromQueue(person.id);
+
+            if (currentId === person.id && (isPreparing || isRunning || isFinished)) {
+              markCurrentAsDone();
+              clearTimerInterval();
+              isPreparing = false;
+              isRunning = false;
+              isPaused = false;
+              isFinished = false;
+              startNextFromQueue();
+            }
+          } else if (roundIsActiveOrStarted()) {
+            addToQueueRandomly(person.id);
           }
 
-          if (!isRunning && !isFinished && !currentId) {
+          if (!isPreparing && !isRunning && !isFinished && !currentId) {
             completedIds.clear();
             remainingQueue = [];
             secondsLeft = DURATION_SECONDS;
+            prepSecondsLeft = PREP_SECONDS;
           }
 
           saveParticipants();
@@ -883,6 +907,10 @@
       }
 
       clearTimerInterval();
+      isPreparing = false;
+      isRunning = false;
+      isPaused = false;
+      isFinished = false;
       removeFromQueue(personId);
       currentId = personId;
       secondsLeft = DURATION_SECONDS;
@@ -922,9 +950,13 @@
     }
 
     function skipCurrentPerson() {
-      if (!isRunning || !currentId) return;
+      if ((!isRunning && !isPreparing && !isFinished) || !currentId) return;
 
       markCurrentAsDone();
+      clearTimerInterval();
+      isPreparing = false;
+      isRunning = false;
+      isPaused = false;
       isFinished = false;
       startNextFromQueue();
     }
