@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Timer - farbenblindfreundlich mit flexibler Anwesenheit</title>
+  <title>Daily Timer - farbenblindfreundlich mit korrekter Nächster-Anzeige</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -626,18 +626,13 @@
     }
 
     function readyText() {
-      const current = getCurrentParticipant();
-
-      if (isPreparing && current) {
-        return "Jetzt geht's los: " + current.name;
-      }
-
       const next = getNextParticipant();
+
       if (next) {
         return "Mach dich bereit: " + next.name;
       }
 
-      if (isRunning || isFinished || completedIds.size > 0) {
+      if (isPreparing || isRunning || isFinished || completedIds.size > 0) {
         return "Niemand mehr danach";
       }
 
